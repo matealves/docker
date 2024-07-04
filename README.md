@@ -20,5 +20,5 @@ API desenvolvida em Node JS e SQLite para estudos de Docker.
 ### Passo 1: Clonar o Repositório
 
 ```sh
-git clone https://github.com/seu-usuario/seu-repositorio.git
-cd seu-repositorio
+git clone https://github.com/matealves/docker.git
+cd docker
