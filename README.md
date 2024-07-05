@@ -1,6 +1,6 @@
-# API de teste com Docker
+# Docker
 
-API desenvolvida em Node JS e SQLite para estudos de Docker.
+Containers e Immagens de APIs e projetos, desenvolvidos para estudos de Docker.
 
 ## Estrutura do Repositório
 
