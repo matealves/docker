@@ -1,6 +1,6 @@
 # Docker
 
-Containers e Immagens de APIs e projetos, desenvolvidos para estudos de Docker.
+Containers e Imagens de projetos, desenvolvidos para estudos de Docker.
 
 ## Estrutura do Repositório
 
