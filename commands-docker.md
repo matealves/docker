@@ -30,15 +30,13 @@ docker rmi "image_ID" ou "name_image"
 ### Remover tudo que não está sendo utilizado
 docker system prune
 
-<!-- CRIAR -->
-
-### Criar network
-docker network create "name_network"
-
-<!-- RODAR -->
+<!-- RODAR / CRIAR -->
 
 ### Rodar / Instalar imagem
 docker run -it "nome_imagem" ('node' ou 'ubuntu')
+
+### Criar container com nome e executá-lo, flag --name
+docker run -dp 80:80 --name "new_container_name" "name_image"
 
 ### Rodar container em background (não ocupar o terminal), flag -d
 docker run -d "nome_imagem" ('nginx')
@@ -46,11 +44,14 @@ docker run -d "nome_imagem" ('nginx')
 ### Rodar imagem usando uma porta pré definida, flag -p
 docker run -d -p 80:80 nginx
 
-### Nomear um container ao executá-lo, flag --name
-docker run -dp 80:80 --name "new_name" nginx
 
 ### Rodar imagem em uma network
 docker run -d --name "new-image-name" --network "name_network" "name_image"
+
+<!-- CRIAR -->
+
+### Criar network
+docker network create "name_network"
 
 <!-- PARAR EXECUÇÃO -->
 
