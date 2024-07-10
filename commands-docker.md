@@ -34,7 +34,7 @@ docker rm "id_container" ou "name_container"
 docker image ls
 
 ### Remover imagem
-docker rmi "image_ID"
+docker rmi "image_ID" ou "name_image"
 
 ### Gerar buid do Dockerfile
 docker build -t "new-name-image" .
