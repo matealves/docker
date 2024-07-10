@@ -38,12 +38,14 @@ docker run -it "nome_imagem" ('node' ou 'ubuntu')
 ### Criar container com nome e executá-lo, flag --name
 docker run -dp 80:80 --name "new_container_name" "name_image"
 
+### Criar container vinculado a uma network, flag --network
+docker run --name "new_container_name" --network "name_network" -dp 127.0.0.1:5002:5002 "name_image"
+
 ### Rodar container em background (não ocupar o terminal), flag -d
 docker run -d "nome_imagem" ('nginx')
 
 ### Rodar imagem usando uma porta pré definida, flag -p
 docker run -d -p 80:80 nginx
-
 
 ### Rodar imagem em uma network
 docker run -d --name "new-image-name" --network "name_network" "name_image"
