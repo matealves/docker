@@ -19,4 +19,7 @@ authRouter.post(
 );
 authRouter.get("/me", authMiddleware, authController.userLogged);
 
+// test
+authRouter.get("/health", authController.health);
+
 export default authRouter;

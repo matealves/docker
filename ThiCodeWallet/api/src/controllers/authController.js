@@ -1,5 +1,13 @@
 import authService from "../services/authService.js";
 
+async function health(req, res) {
+  try {
+    return res.status(200).json({ status: true });
+  } catch (err) {
+    return res.status(500).send(err.message);
+  }
+}
+
 async function signup(req, res) {
   const body = req.body;
 
@@ -33,4 +41,4 @@ async function userLogged(req, res) {
   }
 }
 
-export default { signup, signin, userLogged };
+export default { health, signup, signin, userLogged };
