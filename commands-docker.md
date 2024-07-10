@@ -2,8 +2,8 @@
 
 <!-- BUILD -->
 
-### Gerar buid do Dockerfile
-docker build -t "new-name-image" .
+### Gerar build a partir do Dockerfile
+docker build -t "new-image-name" .
 
 <!-- LISTAR -->
 
