@@ -50,6 +50,13 @@ docker run -d -p 80:80 nginx
 ### Rodar imagem em uma network
 docker run -d --name "new-image-name" --network "name_network" "name_image"
 
+### Criar container temporário (para ver o que tem dentro)
+docker run --name "name_container" -it "name_image"
+### Entrar no container para ver o que tem nele (pelo terminal)
+docker exec -it "name_container" /bin/bash
+ls (lista diretórios e arquivos)
+cat "name_file" (abre arquivo no terminal)
+
 <!-- CRIAR -->
 
 ### Criar network
