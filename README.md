@@ -22,3 +22,15 @@ Containers e Imagens de projetos, desenvolvidos para estudos de Docker.
 ```sh
 git clone https://github.com/matealves/docker.git
 cd docker
+```
+
+### Passo 2: Escolher algum projeto do repositório
+
+```sh
+cd api-test
+```
+
+### Passo 3: Executar os comandos Docker no terminal, de acordo com o arquivo:
+```sh
+commands-docker-api.txt
+```
