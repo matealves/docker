@@ -1,14 +1,9 @@
 docker build -t spa-wallet .
 
+docker run -d --name spa-wallet -v spa-volume:/var/www/html --network net-wallet spa-wallet
 
+-----------------------------------------------------------
 
+docker build -t nginx-wallet .
 
-
-
-
-
-docker network create net-wallet
-
-docker run --name api-wallet --network net-wallet -dp 127.0.0.1:5002:5002 api-wallet
-
-docker run -d --name mongo-wallet -p 27017:27017 --network net-wallet mongo
+docker run -d --name nginx-container -v spa-volume:/var/www/html -p 80:80 --network net-wallet nginx-wallet
