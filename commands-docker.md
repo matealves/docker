@@ -47,6 +47,9 @@ docker run -d "nome_imagem" ('nginx')
 ### Rodar imagem usando uma porta pré definida, flag -p
 docker run -d -p 80:80 nginx
 
+### Rodar imagem usando um volume pré definido, flag -v
+docker run -d -v spa-volume:/var/www/html nginx
+
 ### Rodar imagem em uma network
 docker run -d --name "new-image-name" --network "name_network" "name_image"
 
