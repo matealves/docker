@@ -8,7 +8,6 @@ Containers e Imagens de projetos, desenvolvidos para estudos de Docker.
 - `docker-compose.yml`: Define os serviços a serem executados com Docker Compose.
 - `app/`: Diretório contendo o código-fonte da aplicação.
 - `scripts/`: Scripts auxiliares para construção e execução dos containers.
-- `README.md`: Este arquivo.
 
 ## Requisitos
 
