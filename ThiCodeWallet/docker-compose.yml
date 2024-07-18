@@ -1,0 +1,44 @@
+services:
+  db:
+    image: mongo:latest
+    container_name: db
+    ports: 
+    - 27017:27017
+    volumes:
+      - mongodb-wallet-volume:/data/db
+    restart: always
+  api:
+    container_name: api-wallet
+    build: ./api
+    restart: always
+    ports:
+      - 5002:5002
+    depends_on:
+      - db
+    env_file:
+      - ./api/.env
+  spa:
+    container_name: spa-wallet
+    build: ./spa
+    depends_on:
+      - api
+    env_file:
+      - ./spa/.env
+    volumes:
+      - spa-volume:/var/www/html
+
+  nginx:
+    container_name: nginx-wallet
+    build: ./nginx
+    ports:
+      - 80:80
+    volumes:
+      - spa-volume:/var/www/html
+    depends_on:
+      - db
+      - api
+      - spa
+
+volumes:
+  mongodb-wallet-volume:
+  spa-volume:
