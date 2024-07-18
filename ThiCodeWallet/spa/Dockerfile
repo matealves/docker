@@ -1,16 +1,14 @@
-FROM node:latest
+FROM node:20.10.0
 
 WORKDIR /tmp/react
 
-COPY . .
-
-RUN rm -rf node_modules
+COPY package*.json .
 RUN npm install
 
+COPY . .
+
 RUN npm run build
-
 RUN mkdir -p /var/www/html
-
 RUN mv dist/* /var/www/html
 
 VOLUME /var/www/html
