@@ -29,6 +29,7 @@ docker rmi "image_ID" ou "name_image"
 
 ### Remover tudo que não está sendo utilizado
 docker system prune
+docker builder prune
 
 <!-- RODAR / CRIAR -->
 
