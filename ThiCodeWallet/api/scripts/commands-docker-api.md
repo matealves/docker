@@ -1,3 +1,5 @@
+$ cd ThiCodeWallet\api
+
 $ docker build -t api-wallet .
 
 $ docker network create net-wallet
