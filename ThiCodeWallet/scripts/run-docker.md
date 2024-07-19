@@ -6,7 +6,7 @@ docker-compose up -d
 ### Parar docker e remover containers
 docker-compose down 
 
-### Parar docker e remover tudo (-v para remover volumes, rmi para remover imagens, redes e volumes, local ou todas)
+### Parar docker e remover tudo (-v para remover volumes, rmi para remover imagens e redes, local ou todas)
 docker-compose down --rmi local -v
 
 docker-compose down --rmi all -v
