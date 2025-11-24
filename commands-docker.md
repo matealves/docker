@@ -1,81 +1,267 @@
-# Comandos Docker
+# 📦 Comandos Docker — Guia Completo e Simples
 
-<!-- BUILD -->
+## 🔨 BUILD
 
 ### Gerar build a partir do Dockerfile
-docker build -t "new-image-name" .
+```sh
+docker build -t imagem:tag .
+```
 
-<!-- LISTAR -->
+### Gerar build usando um Dockerfile específico
+```sh
+docker build -f Dockerfile.dev -t imagem:dev .
+```
 
-### Listar imagens (containers) rodando
-docker ps
+### Fazer build sem usar cache
+```sh
+docker build --no-cache -t imagem:tag .
+```
 
-### Listar todas as imagens (containers), flag -a
-docker ps -a
-
-### Listar logs do container
-docker logs "id_container" ou "name_container"
+## 📜 IMAGENS
 
 ### Listar imagens
+```sh
 docker image ls
-
-<!-- REMOVER -->
-
-### Remover container
-docker rm "id_container" ou "name_container"
+```
 
 ### Remover imagem
-docker rmi "image_ID" ou "name_image"
+```sh
+docker rmi imagem:tag
+docker rmi ID_da_imagem
+```
 
-### Remover tudo que não está sendo utilizado
-docker system prune
-docker builder prune
+### Inspecionar imagem
+```sh
+docker image inspect imagem:tag
+```
 
-<!-- RODAR / CRIAR -->
+### Renomear (taggear) imagem
+```sh
+docker tag imagem:tag novo_nome:tag
+```
 
-### Rodar / Instalar imagem
-docker run -it "nome_imagem" ('node' ou 'ubuntu')
+## 🏃 CONTAINERS
 
-### Criar container com nome e executá-lo, flag --name
-docker run -dp 80:80 --name "new_container_name" "name_image"
+### Listar containers rodando
+```sh
+docker ps
+```
 
-### Criar container vinculado a uma network, flag --network
-docker run --name "new_container_name" --network "name_network" -dp 127.0.0.1:5002:5002 "name_image"
+### Listar todos containers
+```sh
+docker ps -a
+```
 
-### Rodar container em background (não ocupar o terminal), flag -d
-docker run -d "nome_imagem" ('nginx')
+### Criar e rodar container
+```sh
+docker run imagem
+```
 
-### Rodar imagem usando uma porta pré definida, flag -p
-docker run -d -p 80:80 nginx
+### Rodar container com nome
+```sh
+docker run --name nome_container imagem
+```
 
-### Rodar imagem usando um volume pré definido, flag -v
-docker run -d -v spa-volume:/var/www/html nginx
+### Rodar container em background
+```sh
+docker run -d imagem
+```
 
-### Rodar imagem em uma network
-docker run -d --name "new-image-name" --network "name_network" "name_image"
+### Rodar com bind de porta
+```sh
+docker run -d -p 8080:80 imagem
+```
 
-### Criar container temporário (para ver o que tem dentro)
-docker run --name "name_container" -it "name_image"
+### Rodar com volume
+```sh
+docker run -d -v meu-volume:/caminho/no/container imagem
+```
 
-### Entrar no container para ver o que tem nele (pelo terminal)
-docker exec -it "name_container" /bin/bash
-ls (lista diretórios e arquivos)
-cat "name_file" (abre arquivo no terminal)
+### Rodar usando network
+```sh
+docker run -d --network minha_network imagem
+```
 
-### Rodar docker-compose em background
-docker compose up -d
+### Criar container temporário (debug)
+```sh
+docker run -it imagem /bin/bash
+```
 
-<!-- CRIAR -->
+## 🔧 EXECUTAR / DEBUG
+
+### Entrar no terminal de um container
+```sh
+docker exec -it nome_container /bin/bash
+```
+
+### Logs do container
+```sh
+docker logs nome_container
+docker logs -f nome_container
+```
+
+## ⏹ PARAR / INICIAR / REINICIAR
+
+### Parar container
+```sh
+docker stop nome_container
+```
+
+### Iniciar container parado
+```sh
+docker start nome_container
+```
+
+### Reiniciar container
+```sh
+docker restart nome_container
+```
+
+### Remover container
+```sh
+docker rm nome_container
+docker rm -f nome_container
+```
+
+## 🌐 NETWORKS
+
+### Listar networks
+```sh
+docker network ls
+```
 
 ### Criar network
-docker network create "name_network"
+```sh
+docker network create minha_network
+```
 
-<!-- PARAR EXECUÇÃO -->
+### Inspecionar network
+```sh
+docker network inspect minha_network
+```
 
-### Parar um container que está em background
-docker stop "id_container" ou "name_container"
+## 💾 VOLUMES
 
-<!-- REINICIAR EXECUÇÃO -->
+### Listar volumes
+```sh
+docker volume ls
+```
 
-### Reiniciar um container interrompido
-docker start "id_container" ou "name_container"
+### Criar volume
+```sh
+docker volume create meu_volume
+```
+
+### Inspecionar volume
+```sh
+docker volume inspect meu_volume
+```
+
+### Remover volume
+```sh
+docker volume rm meu_volume
+```
+
+## 🧹 LIMPEZA (PRUNE)
+
+### Remover tudo que não está sendo usado
+```sh
+docker system prune
+```
+
+### Remover tudo incluindo volumes
+```sh
+docker system prune --volumes
+```
+
+### Limpar cache de build
+```sh
+docker builder prune
+```
+
+## 🐳 DOCKER COMPOSE
+
+### Subir containers em background
+```sh
+docker compose up -d
+```
+
+### Derrubar containers
+```sh
+docker compose down
+```
+
+### Derrubar + remover volumes
+```sh
+docker compose down -v
+```
+
+### Ver logs
+```sh
+docker compose logs
+docker compose logs -f
+```
+
+### Rebuilar e subir
+```sh
+docker compose up -d --build
+```
+
+## 🔍 INSPEÇÃO
+
+### Inspecionar container
+```sh
+docker inspect nome_container
+```
+
+### Ver consumo de recursos
+```sh
+docker stats
+```
+
+### Ver processos do container
+```sh
+docker top nome_container
+```
+
+## 🏷 TAGS
+
+### Criar tag
+```sh
+docker tag minha_imagem:latest minha_imagem:v1
+```
+
+### Push para Docker Hub
+```sh
+docker push usuario/imagem:tag
+```
+
+### Login
+```sh
+docker login
+```
+
+## 📥 PULL
+
+### Baixar imagem
+```sh
+docker pull nginx
+docker pull node:18
+```
+
+## 📍 EXTRA
+
+### Parar todos containers
+```sh
+docker stop $(docker ps -q)
+```
+
+### Remover todos containers
+```sh
+docker rm $(docker ps -aq)
+```
+
+### Remover todas imagens
+```sh
+docker rmi $(docker images -q)
+```
